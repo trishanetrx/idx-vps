@@ -868,5 +868,12 @@ declare -A OS_OPTIONS=(
     ["Rocky Linux 9"]="rockylinux|9|https://download.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud.latest.x86_64.qcow2|rocky9|rocky|rocky"
 )
 
+# ===== Direct CLI Mode =====
+if [[ "${1:-}" == "start" && -n "${2:-}" ]]; then
+    start_vm "$2"
+    exit 0
+fi
+
 # Start the main menu
+
 main_menu
